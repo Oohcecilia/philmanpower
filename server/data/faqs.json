@@ -1,0 +1,50 @@
+[
+  {
+    "id": "faq-1",
+    "question": "How long does the recruitment process take?",
+    "answer": "The typical timeline from initial consultation to a professional's arrival is 4–8 months, depending on the industry, visa processing times, and language training requirements.",
+    "is_active": true,
+    "display_order": 1,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "faq-2",
+    "question": "What is the visa process for Filipino professionals?",
+    "answer": "We handle the complete visa process, including document preparation, credential recognition, embassy appointments, and work permit applications.",
+    "is_active": true,
+    "display_order": 2,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "faq-3",
+    "question": "What qualifications do the candidates have?",
+    "answer": "All candidates hold relevant professional qualifications from accredited institutions.",
+    "is_active": true,
+    "display_order": 3,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "faq-4",
+    "question": "What level of German language proficiency do candidates achieve?",
+    "answer": "We work with certified language institutes to prepare candidates to at least B1 level, with most healthcare professionals reaching B2 before their arrival.",
+    "is_active": true,
+    "display_order": 4,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "faq-5",
+    "question": "What are the costs involved?",
+    "answer": "Our fee structure is transparent and depends on the number of placements, industry, and specific service requirements.",
+    "is_active": true,
+    "display_order": 5,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "faq-6",
+    "question": "What support do you provide after placement?",
+    "answer": "We offer comprehensive post-placement support for both employers and professionals, including integration coaching and cultural orientation.",
+    "is_active": true,
+    "display_order": 6,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ind-1",
+    "title": "Healthcare & Nursing",
+    "description": "Registered nurses, certified care professionals, and healthcare assistants prepared for European standards.",
+    "icon": "Heart",
+    "roles": "Registered Nurses, Nursing Assistants, Care Professionals",
+    "is_active": true,
+    "display_order": 1,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "ind-2",
+    "title": "Hospitality & Gastronomy",
+    "description": "Skilled chefs, service staff, and hotel professionals trained for premium European establishments.",
+    "icon": "UtensilsCrossed",
+    "roles": "Chef de Cuisine, Commis & Sous Chef, Service & Reception",
+    "is_active": true,
+    "display_order": 2,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "ind-3",
+    "title": "Technical & Skilled Trades",
+    "description": "Certified welders, industrial mechanics, construction workers, and engineering professionals.",
+    "icon": "Wrench",
+    "roles": "Welders & Fabricators, Industrial Mechanics, Construction Specialists",
+    "is_active": true,
+    "display_order": 3,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  }
+]

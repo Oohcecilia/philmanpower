@@ -1,0 +1,32 @@
+[
+  {
+    "id": "srv-1",
+    "title": "Healthcare Recruitment",
+    "description": "We recruit registered nurses, nursing assistants, and care professionals for hospitals, clinics, and long-term care facilities across Germany, Austria, and Spain.",
+    "icon": "Heart",
+    "image_url": "",
+    "is_active": true,
+    "display_order": 1,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "srv-2",
+    "title": "Hospitality Staffing",
+    "description": "Skilled chefs, service staff, and hotel professionals trained for premium European establishments.",
+    "icon": "UtensilsCrossed",
+    "image_url": "",
+    "is_active": true,
+    "display_order": 2,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "srv-3",
+    "title": "Technical & Trade Recruitment",
+    "description": "Certified welders, industrial mechanics, construction workers, and engineering professionals.",
+    "icon": "Wrench",
+    "image_url": "",
+    "is_active": true,
+    "display_order": 3,
+    "created_date": "2024-01-01T00:00:00.000Z"
+  }
+]

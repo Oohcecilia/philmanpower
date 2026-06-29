@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1782709542164-em0fi1j",
+    "title": "Now Hiring",
+    "message": "Message description",
+    "color": "info",
+    "cta_text": "Data Privacy",
+    "cta_link": "https://philmanpower.com/datenschutz/",
+    "is_enabled": true,
+    "start_date": null,
+    "end_date": null,
+    "created_date": "2026-06-29T05:05:42.164Z"
+  },
+  {
+    "id": "1782710515728-g0g4ggl",
+    "title": "Thanks for trusting us",
+    "message": "Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Wir verarbeiten personenbezogene Daten ausschließlich im Einklang mit den geltenden Datenschutzgesetzen, insbesondere der DSGVO und dem BDSG.",
+    "color": "success",
+    "cta_text": "",
+    "cta_link": "",
+    "is_enabled": true,
+    "start_date": null,
+    "end_date": null,
+    "created_date": "2026-06-29T05:21:55.728Z"
+  },
+  {
+    "id": "1782712058330-5fam83h",
+    "title": "helloi world",
+    "message": "bla bla",
+    "color": "info",
+    "cta_text": "",
+    "cta_link": "",
+    "is_enabled": true,
+    "start_date": null,
+    "end_date": null,
+    "created_date": "2026-06-29T05:47:38.330Z"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1782705500912-ygfcimy",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Testimonials",
+    "description": "Edited: Dr. Thomas Berger",
+    "previous_value": "{\"id\":\"test-1\",\"name\":\"Dr. Thomas Berger\",\"role\":\"Medical Director\",\"company\":\"Klinikum München-Ost\",\"text\":\"PhilManPower delivered exactly what we needed — qualified nursing professionals who were language-ready and culturally prepared.\",\"rating\":5,\"photo_url\":\"\",\"is_active\":true,\"display_order\":1,\"created_date\":\"2024-01-01T00:00:00.000Z\"}",
+    "new_value": "{\"id\":\"test-1\",\"name\":\"Dr. Thomas Berger\",\"role\":\"Medical Director\",\"company\":\"Klinikum München-Ost\",\"text\":\"PhilManPower delivered exactly what we needed — qualified nursing professionals who were language-ready and culturally prepared.\",\"rating\":5,\"photo_url\":\"/uploads/9a46c3b4-2f87-4a20-a52c-7cdda910b7a1.jpg\",\"is_active\":true,\"display_order\":1,\"created_date\":\"2024-01-01T00:00:00.000Z\"}",
+    "created_date": "2026-06-29T03:58:20.912Z"
+  },
+  {
+    "id": "1782705941615-p17cgqk",
+    "user_email": "admin@philmanpower.com",
+    "action": "Created",
+    "section": "Announcements",
+    "description": "Created: Now Hiring",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T04:05:41.615Z"
+  },
+  {
+    "id": "1782708825114-dpa0kog",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Process Steps",
+    "description": "Edited: 01",
+    "previous_value": "{\"id\":\"step-1\",\"step_number\":\"01\",\"title\":\"Consultation\",\"description\":\"We analyze your staffing needs, timelines, and specific requirements in a free initial consultation.\",\"icon\":\"MessageSquare\",\"is_active\":true,\"display_order\":1,\"created_date\":\"2024-01-01T00:00:00.000Z\"}",
+    "new_value": "{\"id\":\"step-1\",\"step_number\":\"01\",\"title\":\"Consultation\",\"description\":\"We analyze your staffing needs, timelines, and specific requirements in a free initial consultation needs.\",\"icon\":\"MessageSquare\",\"is_active\":true,\"display_order\":1,\"created_date\":\"2024-01-01T00:00:00.000Z\"}",
+    "created_date": "2026-06-29T04:53:45.114Z"
+  },
+  {
+    "id": "1782709542181-3wxvjtk",
+    "user_email": "admin@philmanpower.com",
+    "action": "Created",
+    "section": "Announcements",
+    "description": "Created: Now Hiring",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T05:05:42.181Z"
+  },
+  {
+    "id": "1782709601435-ofqaioh",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Announcements",
+    "description": "Updated: Now Hiring",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T05:06:41.435Z"
+  },
+  {
+    "id": "1782709996789-tqzo5dn",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Announcements",
+    "description": "Updated: Now Hiring",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T05:13:16.789Z"
+  },
+  {
+    "id": "1782710515749-vu0eer7",
+    "user_email": "admin@philmanpower.com",
+    "action": "Created",
+    "section": "Announcements",
+    "description": "Created: Thanks for trusting us",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T05:21:55.749Z"
+  },
+  {
+    "id": "1782712058345-68x63sm",
+    "user_email": "admin@philmanpower.com",
+    "action": "Created",
+    "section": "Announcements",
+    "description": "Created: helloi world",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T05:47:38.345Z"
+  }
+]
