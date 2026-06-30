@@ -6,6 +6,12 @@ import de from "./locales/de.json";
 import es from "./locales/es.json";
 import zh from "./locales/zh.json";
 
+const STORAGE_KEY = "i18nextLng";
+
+// Restore saved language preference before initialising i18n
+const savedLng =
+  typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+
 i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en },
@@ -13,13 +19,10 @@ i18n.use(initReactI18next).init({
     es: { translation: es },
     zh: { translation: zh },
   },
-  lng: "en",
+  lng: savedLng || "en",
   fallbackLng: "en",
   interpolation: {
     escapeValue: false,
-  },
-  detection: {
-    order: ["localStorage", "navigator"],
   },
 });
 

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 
-const ABOUT_IMG = "https://media.base44.com/images/public/6a41d61e6ea320f7ee63f28f/e1e11d7c1_generated_1fd62d10.png";
+const ABOUT_IMG = "/images/pages/about.png";
 
 export default function AboutSection() {
   const { t } = useTranslation();

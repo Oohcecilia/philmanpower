@@ -6,9 +6,10 @@ import ScrollReveal from "./ScrollReveal";
 import AnnouncementBanner from "./AnnouncementBanner";
 
 
-const HERO_NURSE = "https://media.base44.com/images/public/6a41d61e6ea320f7ee63f28f/871f86779_generated_683459d7.png";
-const HERO_CHEF = "https://media.base44.com/images/public/6a41d61e6ea320f7ee63f28f/09e951527_generated_5b96b38c.png";
-const HERO_ENGINEER = "https://media.base44.com/images/public/6a41d61e6ea320f7ee63f28f/c4d133345_generated_cd86cbdd.png";
+const HERO_NURSE = "/images/pages/hero-nurse.png";
+const HERO_CHEF = "/images/pages/hero-chef.png";
+const HERO_ENGINEER = "/images/pages/hero-engineer.png";
+
 
 
 
@@ -25,9 +26,9 @@ export default function HeroSection() {
             {/* 2. Premium High-End Office/Recruitment Image Layer */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <img
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2069&q=80"
+                    src="/images/pages/hero-bg.jpg"
                     alt="Modern corporate office background"
-                    className="w-full h-full object-cover opacity-20 blur-[3px] mix-blend-luminosity scale-105"
+                    className="w-full h-full object-cover opacity-35 blur-[3px] mix-blend-luminosity scale-105"
                 />
                 {/* Gradient masks to guarantee text readability while revealing the image */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent" />
@@ -62,11 +63,11 @@ export default function HeroSection() {
                                 {t("hero.title")}{" "}
                                 <span className="text-gold relative inline-block">
                                     {t("hero.titleHealthcare")}
-                                    <span className="absolute bottom-1 left-0 w-full h-3 bg-gold/10 -z-10 rounded-sm" />
+                                    {/* <span className="absolute bottom-1 left-0 w-full h-3 bg-gold/10 -z-10 rounded-sm" /> */}
                                 </span> &{" "}
                                 <span className="text-gold relative inline-block">
                                     {t("hero.titleIndustry")}
-                                    <span className="absolute bottom-1 left-0 w-full h-3 bg-gold/10 -z-10 rounded-sm" />
+                                    {/* <span className="absolute bottom-1 left-0 w-full h-3 bg-gold/10 -z-10 rounded-sm" /> */}
                                 </span>
                             </h1>
                         </ScrollReveal>
@@ -124,7 +125,7 @@ export default function HeroSection() {
                             {/* Background frame */}
                             <motion.div
                                 initial={{ opacity: 0, x: 40, y: 20 }}
-                                animate={{ opacity: 1, x: 0, y: 0 }}
+                                animate={{ opacity: 1, x: 20, y: -20 }}
                                 transition={{ duration: 1, delay: 0.5 }}
                                 className="absolute top-8 -right-2 w-[65%] aspect-[3/4] z-0"
                             >
@@ -150,7 +151,7 @@ export default function HeroSection() {
                                 initial={{ opacity: 0, x: -20, y: 30 }}
                                 animate={{ opacity: 1, x: 0, y: 0 }}
                                 transition={{ duration: 1, delay: 0.3 }}
-                                className="relative w-[60%] aspect-[3/4] z-10 mt-12"
+                                className="relative  w-[60%] aspect-[3/4] z-10 mt-12"
                             >
                                 <motion.div
                                     animate={{
@@ -172,7 +173,7 @@ export default function HeroSection() {
                             {/* Front frame */}
                             <motion.div
                                 initial={{ opacity: 0, y: 40 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                animate={{ opacity: 1, y: 20 }}
                                 transition={{ duration: 1, delay: 0.7 }}
                                 className="absolute bottom-0 right-4 w-[50%] aspect-[3/4] z-20"
                             >
@@ -207,7 +208,7 @@ export default function HeroSection() {
             </div>
 
             {/* Desktop announcement overlay */}
-            <div className="absolute bottom-6 right-6 lg:bottom-10 lg:right-10 z-30 hidden lg:block max-w-sm">
+            <div className="absolute top-16 right-6 lg:bottom-10 lg:right-10 z-30 hidden lg:block max-w-sm">
                 <AnnouncementBanner overlay />
             </div>
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router-dom";
 import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 function AnimatedCounter({ target, label }) {
@@ -38,6 +39,8 @@ function AnimatedCounter({ target, label }) {
 
 export default function Footer() {
   const { t } = useTranslation();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   return (
     <footer className="bg-navy text-white">
@@ -100,16 +103,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm text-white/50">
               {[
-                { label: t("footer.aboutUs"), href: "#about" },
-                { label: t("nav.industries"), href: "#industries" },
-                { label: t("nav.process"), href: "#process" },
-                { label: t("nav.faq"), href: "#faq" },
-                { label: t("nav.contact"), href: "#contact" },
+                { label: t("footer.aboutUs"), id: "about" },
+                { label: t("nav.industries"), id: "industries" },
+                { label: t("nav.process"), id: "process" },
+                { label: t("nav.faq"), id: "faq" },
+                { label: t("nav.contact"), id: "contact" },
               ].map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="hover:text-white/80 transition-colors">
-                    {l.label}
-                  </a>
+                  {isHomePage ? (
+                    <a href={`#${l.id}`} className="hover:text-white/80 transition-colors">
+                      {l.label}
+                    </a>
+                  ) : (
+                    <Link to={`/#${l.id}`} className="hover:text-white/80 transition-colors">
+                      {l.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -122,18 +131,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm text-white/50">
               <li>
-                <a href="https://philmanpower.com/impressum/" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">
+                <a href="/imprint" className="hover:text-white/80 transition-colors">
                   {t("footer.impressum")}
                 </a>
               </li>
               <li>
-                <a href="https://philmanpower.com/datenschutz/" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">
+                <a href="/privacy-policy" className="hover:text-white/80 transition-colors">
                   {t("footer.privacyPolicy")}
-                </a>
-              </li>
-              <li>
-                <a href="/admin" className="hover:text-white/80 transition-colors">
-                  Admin
                 </a>
               </li>
             </ul>

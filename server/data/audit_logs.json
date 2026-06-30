@@ -78,5 +78,55 @@
     "previous_value": "",
     "new_value": "",
     "created_date": "2026-06-29T05:47:38.345Z"
+  },
+  {
+    "id": "1782746770319-eyz4xf0",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Announcements",
+    "description": "Updated: Now Hiring !!!",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T15:26:10.320Z"
+  },
+  {
+    "id": "1782746874818-zm71f4y",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Announcements",
+    "description": "Updated: Now Hiring !!!",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T15:27:54.818Z"
+  },
+  {
+    "id": "1782748552232-953rarr",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Announcements",
+    "description": "Updated: Enrollment",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T15:55:52.232Z"
+  },
+  {
+    "id": "1782775417475-qs6op0d",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Announcements",
+    "description": "Updated: Athena Nursing Care Enrollment!!",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T23:23:37.475Z"
+  },
+  {
+    "id": "1782775455006-3inj9z1",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Announcements",
+    "description": "Updated: Athena Nursing Care Enrollment!!",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-06-29T23:24:15.006Z"
   }
 ]

@@ -1,17 +1,5 @@
 [
   {
-    "id": "1782709542164-em0fi1j",
-    "title": "Now Hiring",
-    "message": "Message description",
-    "color": "info",
-    "cta_text": "Data Privacy",
-    "cta_link": "https://philmanpower.com/datenschutz/",
-    "is_enabled": true,
-    "start_date": null,
-    "end_date": null,
-    "created_date": "2026-06-29T05:05:42.164Z"
-  },
-  {
     "id": "1782710515728-g0g4ggl",
     "title": "Thanks for trusting us",
     "message": "Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Wir verarbeiten personenbezogene Daten ausschließlich im Einklang mit den geltenden Datenschutzgesetzen, insbesondere der DSGVO und dem BDSG.",
@@ -24,15 +12,27 @@
     "created_date": "2026-06-29T05:21:55.728Z"
   },
   {
-    "id": "1782712058330-5fam83h",
-    "title": "helloi world",
-    "message": "bla bla",
+    "id": "1782746858542-4tqx7ly",
+    "title": "Now Hiring !!!",
+    "message": "TTEC in SM Strata Mandurriao is looking for onsite CSRs (up to PHP 36,700). Other BPOs like Concentrix and Neksjob Jobs in Iloilo on Iloilojobs.net are also mass hiring.",
     "color": "info",
-    "cta_text": "",
-    "cta_link": "",
+    "cta_text": "Data Privacy",
+    "cta_link": "https://philmanpower.com/datenschutz/",
     "is_enabled": true,
     "start_date": null,
     "end_date": null,
-    "created_date": "2026-06-29T05:47:38.330Z"
+    "created_date": "2026-06-29T15:27:38.542Z"
+  },
+  {
+    "id": "1782748518971-k4rzoqz",
+    "title": "Athena Nursing Care Enrollment!!",
+    "message": "TTEC in SM Strata Mandurriao is looking for onsite CSRs (up to PHP 36,700). Other BPOs like Concentrix and Neksjob Jobs in Iloilo on Iloilojobs.net are also mass hiring.",
+    "color": "info",
+    "cta_text": "Enroll now!",
+    "cta_link": "https://anctrainingcenter.com/",
+    "is_enabled": true,
+    "start_date": null,
+    "end_date": null,
+    "created_date": "2026-06-29T15:55:18.971Z"
   }
 ]

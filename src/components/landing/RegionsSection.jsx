@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 
-const IMG_GERMANY = "https://media.base44.com/images/public/6a41d61e6ea320f7ee63f28f/8b591d616_generated_7070d6ea.png";
-const IMG_AUSTRIA = "https://media.base44.com/images/public/6a41d61e6ea320f7ee63f28f/b2dc283d2_generated_d60b2f0c.png";
-const IMG_SPAIN = "https://media.base44.com/images/public/6a41d61e6ea320f7ee63f28f/f80f4e55c_generated_4aa2007c.png";
+const IMG_GERMANY = "/images/pages/region-germany.png";
+const IMG_AUSTRIA = "/images/pages/region-austria.png";
+const IMG_SPAIN = "/images/pages/region-spain.png";
 
 const regionData = [
   { key: "germany", flag: "🇩🇪", img: IMG_GERMANY, alt: "regions.altGermany" },
