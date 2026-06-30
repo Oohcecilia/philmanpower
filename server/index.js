@@ -9,7 +9,11 @@ const PORT = process.env.API_PORT || 3001;
 
 // Middleware
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+  origin: [
+    process.env.CORS_ORIGIN || 'http://localhost:5173',
+    "http://192.168.10.89:3000",
+    "http://localhost:3000"
+  ],
   credentials: true,
 }));
 app.use(express.json({ limit: '10mb' }));
