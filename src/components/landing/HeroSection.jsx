@@ -82,7 +82,7 @@ export default function HeroSection() {
                             <div className="flex flex-wrap items-center gap-4">
                                 <a
                                     href="#contact"
-                                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-navy text-white font-semibold text-base hover:bg-navy/90 hover:shadow-[0_8px_30px_rgba(10,25,47,0.3)] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_8px_20px_rgba(10,25,47,0.15)]"
+                                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gold text-white font-semibold text-base hover:bg-gold/90 hover:shadow-[0_8px_30px_rgba(10,25,47,0.3)] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_8px_20px_rgba(10,25,47,0.15)]"
                                 >
                                     {t("hero.cta")}
                                     <ArrowRight size={18} />

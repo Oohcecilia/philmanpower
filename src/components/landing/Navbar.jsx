@@ -206,14 +206,14 @@ export default function Navbar() {
             {isHomePage ? (
               <a
                 href="#contact"
-                className="inline-flex items-center px-3 xl:px-5 py-2 rounded-full bg-navy text-white text-xs xl:text-sm font-semibold hover:bg-navy/90 transition-all duration-300 whitespace-nowrap"
+                className="inline-flex items-center px-3 xl:px-5 py-2 rounded-full bg-gold text-white text-xs xl:text-sm font-semibold hover:bg-gold/90 transition-all duration-300 whitespace-nowrap"
               >
                 {t("nav.bookConsultation")}
               </a>
             ) : (
               <Link
                 to="/#contact"
-                className="inline-flex items-center px-3 xl:px-5 py-2 rounded-full bg-navy text-white text-xs xl:text-sm font-semibold hover:bg-navy/90 transition-all duration-300 whitespace-nowrap"
+                className="inline-flex items-center px-3 xl:px-5 py-2 rounded-full bg-gold text-white text-xs xl:text-sm font-semibold hover:bg-gold/90 transition-all duration-300 whitespace-nowrap"
               >
                 {t("nav.bookConsultation")}
               </Link>
@@ -321,7 +321,7 @@ export default function Navbar() {
                   <a
                     href="#contact"
                     onClick={() => setMobileOpen(false)}
-                    className="mt-3 inline-flex items-center justify-center px-6 py-3 rounded-full bg-navy text-white text-sm font-semibold"
+                    className="mt-3 inline-flex items-center justify-center px-6 py-3 rounded-full bg-gold text-white text-sm font-semibold"
                   >
                     {t("nav.bookConsultation")}
                   </a>
@@ -329,7 +329,7 @@ export default function Navbar() {
                   <Link
                     to="/#contact"
                     onClick={() => setMobileOpen(false)}
-                    className="mt-3 inline-flex items-center justify-center px-6 py-3 rounded-full bg-navy text-white text-sm font-semibold"
+                    className="mt-3 inline-flex items-center justify-center px-6 py-3 rounded-full bg-gold text-white text-sm font-semibold"
                   >
                     {t("nav.bookConsultation")}
                   </Link>

@@ -210,7 +210,7 @@ ${fileUrl ? `Attachment: ${fileUrl}` : ""}
                 <button
                   type="submit"
                   disabled={sending}
-                  className="w-full mt-8 px-8 py-4 rounded-full bg-navy text-white font-semibold text-base hover:bg-navy/90 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="w-full mt-8 px-8 py-4 rounded-full bg-gold text-white font-semibold text-base hover:bg-gold/90 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60"
                 >
                   {sending ? (
                     <>
