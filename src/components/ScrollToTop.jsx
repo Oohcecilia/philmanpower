@@ -1,33 +1,32 @@
-import { useEffect } from "react";
-import { useLocation, useNavigationType } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+import { initHashScroll } from "@/lib/scrollToHash";
 
-const getHashId = (hash) => {
-  const rawId = hash.slice(1);
-
-  try {
-    return decodeURIComponent(rawId);
-  } catch {
-    return rawId;
-  }
-};
+const NAVBAR_HEIGHT = 80;
 
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
-  const navigationType = useNavigationType();
+  const disposerRef = useRef(null);
 
   useEffect(() => {
-    if (navigationType === "POP") return;
+    // Dispose previous listener if any
+    disposerRef.current?.();
 
     if (hash) {
-      const id = getHashId(hash);
-      const timer = window.setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 50);
-      return () => window.clearTimeout(timer);
+      // Use the shared hash-scroll utility with a navbar offset
+      disposerRef.current = initHashScroll({
+        offset: NAVBAR_HEIGHT,
+        delay: 80,
+        behavior: "smooth",
+      });
+      // The utility already handles the initial hash on mount
+    } else {
+      // No hash → scroll to top
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, [pathname, hash, navigationType]);
+    return () => disposerRef.current?.();
+  }, [pathname, hash]);
 
   return null;
 }

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1782877353442-qhn75v2",
+    "title": "Were Hiring!!!",
+    "message": "We are currently hiring motivated and responsible individuals to join our team. Applicants must be willing to learn, work in a team, and provide excellent service. Fresh graduates are welcome to apply. Interested applicants may send their resume or apply in person.",
+    "color": "info",
+    "cta_text": "Apply Now!",
+    "cta_link": "http://localhost:5173/#contact",
+    "author": "",
+    "featured_image": "/uploads/d378fefe-71d5-46fd-8b4d-6a6cf283a0f5.jpg",
+    "is_enabled": true,
+    "start_date": null,
+    "end_date": null,
+    "created_date": "2026-07-01T03:42:33.442Z"
+  }
+]
