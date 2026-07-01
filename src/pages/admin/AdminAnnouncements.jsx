@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import jsonService from "@/lib/jsonService";
 import AdminGuard from "@/components/admin/AdminGuard";
 import PageHeader from "@/components/admin/PageHeader";
 import { useToast } from "@/components/ui/use-toast";
 import { logAudit } from "@/lib/adminAudit";
-import { Plus, Trash2, Eye, EyeOff, X, Copy, Megaphone, ArrowRight, Info, CheckCircle, AlertTriangle, AlertOctagon } from "lucide-react";
+import { Plus, Trash2, Eye, EyeOff, X, Copy, Megaphone, ArrowRight, Info, CheckCircle, AlertTriangle, AlertOctagon, ImagePlus, Trash as TrashIcon, Loader2, Image as ImageIcon } from "lucide-react";
 import ConfirmDialog from "@/components/admin/ConfirmDialog";
 
 const COLOR_OPTIONS = [
@@ -20,12 +20,55 @@ const SCHEDULE_MODES = [
   { value: "draft",  label: "Draft / Manual",  description: "Hidden until manually enabled" },
 ];
 
+const MAX_IMAGE_WIDTH = 1200;
+const JPEG_QUALITY = 0.85;
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+const MAX_FILE_SIZE_MB = 5;
+
+function compressImage(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        let { width, height } = img;
+        if (width > MAX_IMAGE_WIDTH) {
+          height = Math.round((height / width) * MAX_IMAGE_WIDTH);
+          width = MAX_IMAGE_WIDTH;
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, width, height);
+        canvas.toBlob(
+          (blob) => {
+            if (!blob) return reject(new Error("Compression failed"));
+            const compressed = new File([blob], file.name.replace(/\.[^.]+$/, ".jpg"), {
+              type: "image/jpeg",
+            });
+            resolve(compressed);
+          },
+          "image/jpeg",
+          JPEG_QUALITY
+        );
+      };
+      img.onerror = reject;
+      img.src = e.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 const EMPTY = {
   title: "",
   message: "",
   color: "info",
   cta_text: "",
   cta_link: "",
+  author: "",
+  featured_image: "",
   is_enabled: false,
   start_date: "",
   end_date: "",
@@ -104,6 +147,8 @@ export default function AdminAnnouncements() {
   const [showForm, setShowForm] = useState(false);
   const [scheduleMode, setScheduleMode] = useState("draft");
   const [tick, setTick] = useState(0);
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const fileInputRef = useRef(null);
 
   // Re-render every 60 seconds to keep countdown timers fresh
   useEffect(() => {
@@ -126,6 +171,32 @@ export default function AdminAnnouncements() {
     setForm(EMPTY);
     setScheduleMode("draft");
     setShowForm(true);
+  };
+
+  const handleImageUpload = async (file) => {
+    if (file.size > MAX_FILE_SIZE) {
+      toast({
+        title: "File too large",
+        description: `Image must be under ${MAX_FILE_SIZE_MB} MB. Selected file is ${(file.size / (1024 * 1024)).toFixed(1)} MB.`,
+        variant: "destructive",
+      });
+      return;
+    }
+    try {
+      setUploadingImage(true);
+      const compressed = await compressImage(file);
+      const res = await jsonService.integrations.Core.UploadFile({ file: compressed });
+      setForm((p) => ({ ...p, featured_image: res.file_url }));
+      toast({ title: "Image uploaded" });
+    } catch (err) {
+      toast({ title: "Image upload failed", description: err.message, variant: "destructive" });
+    } finally {
+      setUploadingImage(false);
+    }
+  };
+
+  const handleRemoveImage = () => {
+    setForm((p) => ({ ...p, featured_image: "" }));
   };
 
   const openEdit = (item) => {
@@ -195,6 +266,8 @@ export default function AdminAnnouncements() {
         color: item.color,
         cta_text: item.cta_text || "",
         cta_link: item.cta_link || "",
+        author: item.author || "",
+        featured_image: item.featured_image || "",
         is_enabled: false,
         start_date: null,
         end_date: null,
@@ -312,6 +385,10 @@ export default function AdminAnnouncements() {
               <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">CTA Button Link</label>
               <input type="text" value={form.cta_link} onChange={e => setForm(p => ({ ...p, cta_link: e.target.value }))} className={inputClass} placeholder="https:// or #section" />
             </div>
+            <div>
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">Author <span className="text-slate-300 normal-case font-normal">(optional)</span></label>
+              <input type="text" value={form.author} onChange={e => setForm(p => ({ ...p, author: e.target.value }))} className={inputClass} placeholder="e.g. John Doe" />
+            </div>
           </div>
 
           {/* Scheduling */}
@@ -387,6 +464,74 @@ export default function AdminAnnouncements() {
             )}
           </div>
 
+          {/* Featured Image Upload */}
+          <div className="pt-1 border-t border-slate-100">
+            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3">
+              Featured Image <span className="text-slate-300 normal-case font-normal">(optional)</span>
+            </p>
+            <div className="flex items-start gap-4">
+              {form.featured_image ? (
+                <div className="relative group/image w-40 sm:w-48 rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                  <img
+                    src={form.featured_image}
+                    alt="Featured"
+                    className="w-full h-28 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/30 transition-colors flex items-center justify-center">
+                    <button
+                      type="button"
+                      onClick={handleRemoveImage}
+                      className="opacity-0 group-hover/image:opacity-100 p-1.5 bg-red-500 text-white rounded-full hover:bg-red-600 transition-all"
+                      title="Remove image"
+                    >
+                      <TrashIcon size={14} />
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={uploadingImage}
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed border-slate-300 hover:border-orange-400 hover:bg-orange-50/50 transition-all text-sm text-slate-500 hover:text-orange-600"
+                >
+                  {uploadingImage ? (
+                    <Loader2 size={16} className="animate-spin" />
+                  ) : (
+                    <ImagePlus size={16} />
+                  )}
+                  {uploadingImage ? "Compressing & uploading…" : "Upload image"}
+                </button>
+              )}
+              {!form.featured_image && !uploadingImage && (
+                <p className="text-xs text-slate-400 mt-2">
+                  PNG or JPG, max {MAX_FILE_SIZE_MB} MB
+                </p>
+              )}
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) handleImageUpload(file);
+                  e.target.value = "";
+                }}
+              />
+              {form.featured_image && (
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={uploadingImage}
+                  className="self-center text-xs text-slate-400 hover:text-orange-600 transition-colors underline underline-offset-2"
+                >
+                  Replace
+                </button>
+              )}
+            </div>
+          </div>
+
           <div className="flex items-center gap-4 pt-3 border-t border-slate-100">
             <div className="flex gap-3 ml-auto">
               <button onClick={() => { setShowForm(false); setForm(EMPTY); setEditingId(null); }} className="px-4 py-2 border border-slate-200 rounded-lg text-sm text-slate-600 hover:bg-slate-50">
@@ -416,6 +561,19 @@ export default function AdminAnnouncements() {
               const colorOpt = COLOR_OPTIONS.find(c => c.value === item.color) || COLOR_OPTIONS[0];
               return (
                 <div key={item.id} className="flex items-center gap-4 px-5 py-4 hover:bg-slate-50 transition-colors">
+                  {/* Thumbnail indicator */}
+                  <div className="flex-shrink-0 w-9 h-9 rounded-lg overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center">
+                    {item.featured_image ? (
+                      <img
+                        src={item.featured_image}
+                        alt=""
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <ImageIcon size={14} className="text-slate-300" />
+                    )}
+                  </div>
                   <span className={`w-3 h-3 rounded-full flex-shrink-0 ${colorOpt.bg}`} />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">

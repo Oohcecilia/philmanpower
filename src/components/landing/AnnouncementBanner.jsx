@@ -12,6 +12,7 @@ import {
   ChevronRight
 } from "lucide-react";
 import jsonService from "@/lib/jsonService";
+import AnnouncementModal from "./AnnouncementModal";
 
 const ICON_MAP = {
   info: Info,
@@ -60,6 +61,7 @@ export default function AnnouncementBanner({ overlay = false }) {
   const [announcements, setAnnouncements] = useState([]);
   const [dismissedIds, setDismissedIds] = useState(new Set());
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
 
   const carouselRef = useRef(null);
   const dismissedRef = useRef(new Set());
@@ -244,7 +246,8 @@ export default function AnnouncementBanner({ overlay = false }) {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className={`group/card relative overflow-hidden rounded-2xl border border-navy/8 bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgba(10,25,47,0.06)] hover:shadow-[0_12px_40px_rgba(10,25,47,0.10)] transition-shadow duration-500 flex flex-col shrink-0 ${isSingle || overlay
+                onClick={() => setSelectedAnnouncement(item)}
+                className={`group/card relative overflow-hidden rounded-2xl border border-navy/8 bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgba(10,25,47,0.06)] hover:shadow-[0_12px_40px_rgba(10,25,47,0.10)] hover:-translate-y-0.5 transition-all duration-500 cursor-pointer flex flex-col shrink-0 ${isSingle || overlay
                     ? "w-full snap-center"
                     : "snap-center sm:snap-start w-[88vw] sm:w-[480px] lg:w-[560px]"
                   }`}
@@ -268,7 +271,9 @@ export default function AnnouncementBanner({ overlay = false }) {
                     </div>
 
                     <p className="text-sm sm:text-xs text-navy/70 leading-relaxed flex-1 mt-1">
-                      {item.message}
+                      {item.message.length > 200
+                        ? `${item.message.slice(0, 200)}...`
+                        : item.message}
                     </p>
 
                     <div className="flex items-center gap-4 mt-4 flex-wrap mt-auto">
@@ -277,6 +282,7 @@ export default function AnnouncementBanner({ overlay = false }) {
                           href={item.cta_link}
                           target={item.cta_link.startsWith("http") ? "_blank" : "_self"}
                           rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
                           onDragStart={(e) => e.preventDefault()}
                           className="inline-flex items-center gap-1 text-sm font-semibold text-gold hover:text-deep-ochre transition-colors duration-200 group/cta"
                         >
@@ -293,7 +299,10 @@ export default function AnnouncementBanner({ overlay = false }) {
                   </div>
 
                   <button
-                    onClick={() => handleDismiss(item.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDismiss(item.id);
+                    }}
                     className="p-1.5 text-navy/30 hover:text-navy/70 hover:bg-navy/5 rounded-full transition-colors duration-200 z-10 -mr-2"
                     aria-label="Dismiss announcement"
                   >
@@ -322,6 +331,12 @@ export default function AnnouncementBanner({ overlay = false }) {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Announcement Detail Modal */}
+      <AnnouncementModal
+        announcement={selectedAnnouncement}
+        onClose={() => setSelectedAnnouncement(null)}
+      />
     </section>
   );
 }

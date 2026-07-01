@@ -128,5 +128,25 @@
     "previous_value": "",
     "new_value": "",
     "created_date": "2026-06-29T23:24:15.006Z"
+  },
+  {
+    "id": "1782871823572-xo28m8o",
+    "user_email": "admin@philmanpower.com",
+    "action": "Created",
+    "section": "Announcements",
+    "description": "Created: Test Title",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-07-01T02:10:23.572Z"
+  },
+  {
+    "id": "1782872067445-z1okwwv",
+    "user_email": "admin@philmanpower.com",
+    "action": "Updated",
+    "section": "Announcements",
+    "description": "Updated: Now Hiring !!!",
+    "previous_value": "",
+    "new_value": "",
+    "created_date": "2026-07-01T02:14:27.445Z"
   }
 ]

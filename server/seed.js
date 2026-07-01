@@ -4,6 +4,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const DATA_DIR = path.join(__dirname, 'data');
 
@@ -45,7 +46,7 @@ const SEED_DATA = {
     { id: 'test-4', name: 'Anna-Maria Hoffmann', role: 'Nursing Director', company: 'Caritas Pflegezentrum', text: 'We\'ve worked with several recruitment agencies, but PhilManPower stands out for their commitment to quality.', rating: 5, photo_url: '', is_active: true, display_order: 4, created_date: '2024-01-01T00:00:00.000Z' },
   ],
   'announcements.json': [
-    { id: 'annc-1', title: 'Now Hiring', message: 'We are actively recruiting healthcare professionals for positions across Germany and Austria. Apply today!', color: 'info', cta_text: 'View Openings', cta_link: '#contact', is_enabled: true, start_date: null, end_date: null, created_date: '2026-01-01T00:00:00.000Z' },
+    { id: 'annc-1', title: 'Now Hiring', message: 'We are actively recruiting healthcare professionals for positions across Germany and Austria. Apply today!', color: 'info', cta_text: 'View Openings', cta_link: '#contact', featured_image: '/uploads/landscape.jpg', is_enabled: true, start_date: null, end_date: null, created_date: '2026-01-01T00:00:00.000Z' },
   ],
 
   'users.json': [
@@ -64,4 +65,30 @@ for (const [file, data] of Object.entries(SEED_DATA)) {
     console.log(`Skipped: ${file} (already exists)`);
   }
 }
+
+// Seed a sample featured image into the uploads directory
+const UPLOADS_DIR = path.join(__dirname, 'uploads');
+if (!fs.existsSync(UPLOADS_DIR)) {
+  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+}
+
+const sampleImages = [
+  { name: 'landscape.jpg', url: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&q=80' },
+];
+
+for (const img of sampleImages) {
+  const dest = path.join(UPLOADS_DIR, img.name);
+  if (fs.existsSync(dest)) {
+    console.log(`Skipped: uploads/${img.name} (already exists)`);
+    continue;
+  }
+  try {
+    execSync(`curl -sL -o "${dest}" "${img.url}"`, { stdio: 'pipe' });
+    const size = fs.statSync(dest).size;
+    console.log(`Created: uploads/${img.name} (${(size / 1024).toFixed(0)} KB)`);
+  } catch (err) {
+    console.error(`Failed: uploads/${img.name} - ${err.message}`);
+  }
+}
+
 console.log(`\nSeed complete! ${count} files created.`);

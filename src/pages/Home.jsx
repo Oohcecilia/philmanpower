@@ -12,6 +12,7 @@ import FAQSection from "@/components/landing/FAQSection";
 import ContactSection from "@/components/landing/ContactSection";
 import Footer from "@/components/landing/Footer";
 import ScrollToTopButton from "@/components/landing/ScrollToTopButton";
+import FloatingAnnouncementButton from "@/components/landing/FloatingAnnouncementButton";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <FAQSection />
       <ContactSection />
       <Footer />
+      <FloatingAnnouncementButton />
       <ScrollToTopButton />
     </div>
   );
