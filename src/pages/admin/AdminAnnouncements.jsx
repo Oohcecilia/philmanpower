@@ -4,6 +4,7 @@ import AdminGuard from "@/components/admin/AdminGuard";
 import PageHeader from "@/components/admin/PageHeader";
 import { useToast } from "@/components/ui/use-toast";
 import { logAudit } from "@/lib/adminAudit";
+import { getImageUrl } from "@/lib/imageUrl";
 import { Plus, Trash2, Eye, EyeOff, X, Copy, Megaphone, ArrowRight, Info, CheckCircle, AlertTriangle, AlertOctagon, ImagePlus, Trash as TrashIcon, Loader2, Image as ImageIcon } from "lucide-react";
 import ConfirmDialog from "@/components/admin/ConfirmDialog";
 
@@ -473,7 +474,7 @@ export default function AdminAnnouncements() {
               {form.featured_image ? (
                 <div className="relative group/image w-40 sm:w-48 rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
                   <img
-                    src={form.featured_image}
+                    src={getImageUrl(form.featured_image)}
                     alt="Featured"
                     className="w-full h-28 object-cover"
                   />
@@ -565,7 +566,7 @@ export default function AdminAnnouncements() {
                   <div className="flex-shrink-0 w-9 h-9 rounded-lg overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center">
                     {item.featured_image ? (
                       <img
-                        src={item.featured_image}
+                        src={getImageUrl(item.featured_image)}
                         alt=""
                         className="w-full h-full object-cover"
                         loading="lazy"

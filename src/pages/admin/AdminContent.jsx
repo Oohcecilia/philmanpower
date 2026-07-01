@@ -5,6 +5,7 @@ import PageHeader from "@/components/admin/PageHeader";
 import { useToast } from "@/components/ui/use-toast";
 import { logAudit } from "@/lib/adminAudit";
 import { Save, Upload } from "lucide-react";
+import { getImageUrl } from "@/lib/imageUrl";
 
 const SECTIONS = [
   {
@@ -163,7 +164,7 @@ export default function AdminContent() {
                     />
                   ) : f.type === "image" ? (
                     <div className="flex gap-3 items-center">
-                      {values[f.key] && <img src={values[f.key]} alt="" className="w-20 h-14 object-cover rounded-lg border" />}
+                      {values[f.key] && <img src={getImageUrl(values[f.key])} alt="" className="w-20 h-14 object-cover rounded-lg border" />}
                       <label className="flex items-center gap-2 px-4 py-2 border border-dashed border-slate-300 rounded-lg cursor-pointer hover:border-orange-400 transition-colors text-sm text-slate-500">
                         <Upload size={14} /> Upload Image
                         <input type="file" accept="image/*" className="hidden" onChange={e => e.target.files?.[0] && handleUpload(f.key, e.target.files[0])} />

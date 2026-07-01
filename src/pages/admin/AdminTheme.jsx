@@ -5,6 +5,7 @@ import PageHeader from "@/components/admin/PageHeader";
 import { useToast } from "@/components/ui/use-toast";
 import { logAudit } from "@/lib/adminAudit";
 import { Save, Upload } from "lucide-react";
+import { getImageUrl } from "@/lib/imageUrl";
 
 const THEME_FIELDS = [
   { key: "theme_primary_color", label: "Primary Color (Navy)", type: "color", default: "#0A192F" },
@@ -88,7 +89,7 @@ export default function AdminTheme() {
                 </div>
               ) : f.type === "image" ? (
                 <div className="space-y-2">
-                  {values[f.key] && <img src={values[f.key]} alt="" className="h-12 object-contain border rounded-lg p-1" />}
+                  {values[f.key] && <img src={getImageUrl(values[f.key])} alt="" className="h-12 object-contain border rounded-lg p-1" />}
                   <label className="flex items-center gap-2 px-3 py-2 border border-dashed border-slate-300 rounded-lg cursor-pointer hover:border-orange-400 text-sm text-slate-500 w-fit">
                     <Upload size={13} /> Upload
                     <input type="file" accept="image/*" className="hidden" onChange={e => e.target.files?.[0] && handleUpload(f.key, e.target.files[0])} />

@@ -10,6 +10,7 @@ import ConfirmDialog from "@/components/admin/ConfirmDialog";
 import { useToast } from "@/components/ui/use-toast";
 import { logAudit } from "@/lib/adminAudit";
 import { Plus, Pencil, Trash2, GripVertical, X, Check, Upload, Star, ToggleLeft, ToggleRight } from "lucide-react";
+import { getImageUrl } from "@/lib/imageUrl";
 
 function FieldInput({ field, value, onChange }) {
   const base = "w-full px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-800 bg-white focus:border-orange-400 focus:outline-none focus:ring-1 focus:ring-orange-100";
@@ -31,7 +32,7 @@ function FieldInput({ field, value, onChange }) {
   );
   if (field.type === "image") return (
     <div className="space-y-2">
-      {value && <img src={value} alt="" className="w-24 h-16 object-cover rounded-lg border" />}
+      {value && <img src={getImageUrl(value)} alt="" className="w-24 h-16 object-cover rounded-lg border" />}
       <label className="flex items-center gap-2 px-3 py-2 border border-dashed border-slate-300 rounded-lg cursor-pointer hover:border-orange-400 text-sm text-slate-500 w-fit">
         <Upload size={13} /> Upload image
         <input type="file" accept="image/*" className="hidden" onChange={async e => {
@@ -200,7 +201,7 @@ export default function AdminListPage({ title, description, entityName, fields, 
                       <button onClick={() => moveItem(item.id, -1)} className="text-slate-300 hover:text-slate-600 text-xs leading-none">▲</button>
                       <button onClick={() => moveItem(item.id, 1)} className="text-slate-300 hover:text-slate-600 text-xs leading-none">▼</button>
                     </div>
-                    {item.photo_url && <img src={item.photo_url} alt="" className="w-10 h-10 rounded-full object-cover border flex-shrink-0" />}
+                    {item.photo_url && <img src={getImageUrl(item.photo_url)} alt="" className="w-10 h-10 rounded-full object-cover border flex-shrink-0" />}
                     <div className="flex-1 min-w-0">
                       <div className="font-medium text-slate-800 truncate">{item[fields[0].key]}</div>
                       {fields[1] && <div className="text-xs text-slate-400 truncate mt-0.5">{item[fields[1].key]}</div>}

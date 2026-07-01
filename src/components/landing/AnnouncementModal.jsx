@@ -1,4 +1,5 @@
 import { useEffect, useRef, useCallback, useState } from "react";
+import { getImageUrl } from "@/lib/imageUrl";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -344,7 +345,7 @@ export default function AnnouncementModal({ announcement, onClose }) {
               <div className="mb-6 -mx-6 sm:-mx-8 -mt-6">
                 <div className="relative w-full bg-slate-50 flex items-center justify-center">
                   <img
-                    src={announcement.featured_image}
+                    src={getImageUrl(announcement.featured_image)}
                     alt={announcement.title || "Announcement image"}
                     className="w-full max-h-[50vh] object-contain"
                     loading="lazy"
