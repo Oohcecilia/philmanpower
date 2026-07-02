@@ -30,4 +30,6 @@ dist-ssr
 .env
 .vite
 server/uploads
-server/data
+server/data/announcements.json
+server/data/audit_logs.json
+server/data/users.json

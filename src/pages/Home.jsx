@@ -9,6 +9,7 @@ import WhyChooseUs from "@/components/landing/WhyChooseUs";
 import RegionsSection from "@/components/landing/RegionsSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import FAQSection from "@/components/landing/FAQSection";
+import HashLinkDemo from "@/components/landing/HashLinkDemo";
 import ContactSection from "@/components/landing/ContactSection";
 import Footer from "@/components/landing/Footer";
 import ScrollToTopButton from "@/components/landing/ScrollToTopButton";
@@ -27,6 +28,7 @@ export default function Home() {
       <RegionsSection />
       <TestimonialsSection />
       <FAQSection />
+      <HashLinkDemo />
       <ContactSection />
       <Footer />
       <FloatingAnnouncementButton />
