@@ -6,7 +6,12 @@ import path from 'path'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
+  // GitHub Pages deploys at https://oohcecilia.github.io/philmanpower/
+  // Override via VITE_BASE_PATH env var (e.g. for custom domains use '/')
+  const base = env.VITE_BASE_PATH || '/'
+
   return {
+    base,
     plugins: [
       react(),
     ],
